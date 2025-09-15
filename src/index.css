@@ -6,7 +6,7 @@
 
 @layer base {
   :root {
-    /* Professional Black & White Theme */
+    /* Professional Enterprise Theme */
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
 
@@ -26,10 +26,16 @@
     --secondary-foreground: 0 0% 9%;
     --secondary-hover: 0 0% 90%;
 
-    /* Clean Accent */
-    --accent: 0 0% 15%;
+    /* Professional Blue Accent */
+    --accent: 217 91% 60%;
     --accent-foreground: 0 0% 98%;
-    --accent-hover: 0 0% 25%;
+    --accent-hover: 217 91% 55%;
+
+    /* Success & Premium Colors */
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 98%;
+    --premium: 271 91% 65%;
+    --premium-foreground: 0 0% 98%;
 
     /* Subtle Grays */
     --muted: 0 0% 96.1%;
@@ -42,11 +48,13 @@
     --input: 0 0% 89.8%;
     --ring: 0 0% 3.9%;
 
-    /* Monochrome Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(0 0% 9%), hsl(0 0% 15%));
-    --gradient-hero: linear-gradient(135deg, hsl(0 0% 3%) 0%, hsl(0 0% 20%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(0 0% 98%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(0 0% 15%), hsl(0 0% 25%));
+    /* Professional Enterprise Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(0 0% 9%), hsl(217 91% 60%));
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 3%) 0%, hsl(217 91% 15%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(217 10% 98%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(217 91% 60%), hsl(217 91% 55%));
+    --gradient-premium: linear-gradient(135deg, hsl(271 91% 65%), hsl(217 91% 60%));
+    --gradient-success: linear-gradient(135deg, hsl(142 76% 36%), hsl(142 76% 30%));
 
     /* Professional Shadows */
     --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.05);
@@ -140,9 +148,9 @@
     @apply bg-gradient-to-br from-card to-muted/20 border border-border/50 rounded-xl shadow-[var(--shadow-xl)] backdrop-blur-sm;
   }
 
-  /* Button Variants */
+  /* Enhanced Professional Button Styles */
   .btn-hero {
-    @apply bg-gradient-to-r from-accent to-accent/90 hover:from-accent-hover hover:to-accent text-accent-foreground font-semibold shadow-[var(--shadow-glow)] hover:shadow-[var(--shadow-xl)] transform hover:scale-105 transition-all duration-300;
+    @apply bg-gradient-accent hover:bg-accent-hover text-accent-foreground font-semibold shadow-[var(--shadow-glow)] hover:shadow-[var(--shadow-xl)] transform hover:scale-105 transition-all duration-300;
   }
 
   .btn-professional {
@@ -151,6 +159,14 @@
 
   .btn-outline-pro {
     @apply border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-medium transition-all duration-300;
+  }
+
+  .btn-premium {
+    @apply bg-gradient-premium text-premium-foreground font-semibold shadow-[var(--shadow-lg)] hover:shadow-[var(--shadow-xl)] transform hover:scale-105 transition-all duration-300;
+  }
+
+  .btn-success {
+    @apply bg-gradient-success text-success-foreground font-medium shadow-[var(--shadow-md)] hover:shadow-[var(--shadow-lg)] transition-all duration-300;
   }
 
   /* Text Gradients */

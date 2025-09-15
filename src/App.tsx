@@ -11,6 +11,7 @@ import EnhancedJobBoard from "./components/EnhancedJobBoard";
 import Events from "./pages/Events";
 import News from "./pages/News";
 import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -23,6 +24,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/alumni" element={<EnhancedAlumniDirectory />} />
           <Route path="/jobs" element={<EnhancedJobBoard />} />
           <Route path="/events" element={<Events />} />
