@@ -10,6 +10,10 @@ import Jobs from "./pages/Jobs";
 import EnhancedJobBoard from "./components/EnhancedJobBoard";
 import Events from "./pages/Events";
 import News from "./pages/News";
+import Messages from "./pages/Messages";
+import Mentorship from "./pages/Mentorship";
+import CareerHub from "./pages/CareerHub";
+import EventsHub from "./pages/EventsHub";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
@@ -29,6 +33,10 @@ const App = () => (
           <Route path="/jobs" element={<EnhancedJobBoard />} />
           <Route path="/events" element={<Events />} />
           <Route path="/news" element={<News />} />
+          <Route path="/messages" element={<Messages />} />
+          <Route path="/mentorship" element={<Mentorship />} />
+          <Route path="/career-hub" element={<CareerHub />} />
+          <Route path="/events-hub" element={<EventsHub />} />
           <Route path="/login" element={<Login />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
