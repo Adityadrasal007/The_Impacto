@@ -18,8 +18,11 @@ const Header = () => {
   const navigation = [
     { name: "Alumni Directory", href: "/alumni", icon: Users },
     { name: "Jobs", href: "/jobs", icon: Briefcase },
-    { name: "Events", href: "/events", icon: Calendar },
-    { name: "News", href: "/news", icon: Bell },
+    { name: "AI Career Hub", href: "/career-hub", icon: Briefcase },
+    { name: "Mentorship", href: "/mentorship", icon: Users },
+    { name: "Events Hub", href: "/events-hub", icon: Calendar },
+    { name: "Messages", href: "/messages", icon: Bell },
+    { name: "Dashboard", href: "/dashboard", icon: User },
   ];
 
   return (

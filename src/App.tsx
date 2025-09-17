@@ -14,6 +14,10 @@ import Messages from "./pages/Messages";
 import Mentorship from "./pages/Mentorship";
 import CareerHub from "./pages/CareerHub";
 import EventsHub from "./pages/EventsHub";
+import NotificationCenter from "./components/NotificationCenter";
+import SkillsEndorsementSystem from "./components/SkillsEndorsementSystem";
+import GamificationSystem from "./components/GamificationSystem";
+import AIRecommendationEngine from "./components/AIRecommendationEngine";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
@@ -37,6 +41,10 @@ const App = () => (
           <Route path="/mentorship" element={<Mentorship />} />
           <Route path="/career-hub" element={<CareerHub />} />
           <Route path="/events-hub" element={<EventsHub />} />
+          <Route path="/notifications" element={<NotificationCenter />} />
+          <Route path="/skills" element={<SkillsEndorsementSystem />} />
+          <Route path="/gamification" element={<GamificationSystem />} />
+          <Route path="/ai-recommendations" element={<AIRecommendationEngine />} />
           <Route path="/login" element={<Login />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
