@@ -100,7 +100,7 @@ const AIRecommendationEngine = () => {
           matchScore: 79,
           reason: "Perfect for networking and staying updated with latest trends",
           priority: "medium",
-          data: { date: "Dec 15-17, 2024", location: "San Francisco", speakers: 50+ }
+          data: { date: "Dec 15-17, 2024", location: "San Francisco", speakers: "50+" }
         }
       ]);
 

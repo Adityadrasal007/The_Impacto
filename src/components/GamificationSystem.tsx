@@ -12,7 +12,7 @@ import {
   Target, 
   Award, 
   Crown, 
-  Fire,
+  Flame,
   TrendingUp,
   Users,
   MessageSquare,
@@ -265,7 +265,7 @@ const GamificationSystem = () => {
                     <span className="font-medium">{userPoints.toLocaleString()} XP</span>
                   </div>
                   <div className="flex items-center space-x-1">
-                    <Fire className="h-4 w-4 text-orange-500" />
+                    <Flame className="h-4 w-4 text-orange-500" />
                     <span className="font-medium">{userStreak} day streak</span>
                   </div>
                 </div>
@@ -322,7 +322,7 @@ const GamificationSystem = () => {
             <Card className="card-professional">
               <CardHeader>
                 <CardTitle className="flex items-center space-x-2">
-                  <Fire className="h-5 w-5 text-orange-500" />
+                  <Flame className="h-5 w-5 text-orange-500" />
                   <span>Daily Streak</span>
                 </CardTitle>
               </CardHeader>
@@ -534,7 +534,7 @@ const GamificationSystem = () => {
                         <span>Level {entry.level}</span>
                         <span>•</span>
                         <div className="flex items-center space-x-1">
-                          <Fire className="h-3 w-3 text-orange-500" />
+                          <Flame className="h-3 w-3 text-orange-500" />
                           <span>{entry.streak} days</span>
                         </div>
                       </div>
