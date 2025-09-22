@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { useAuth } from "@/contexts/AuthContext";
 import { 
   GraduationCap, 
   Menu, 
@@ -9,11 +10,13 @@ import {
   Briefcase,
   Calendar,
   Bell,
-  User
+  User,
+  LogOut
 } from "lucide-react";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { isAuthenticated, user, logout } = useAuth();
 
   const navigation = [
     { name: "Alumni Directory", href: "/alumni", icon: Users },
@@ -55,16 +58,41 @@ const Header = () => {
 
           {/* Auth Buttons */}
           <div className="hidden md:flex items-center space-x-4">
-            <Link to="/login">
-              <Button variant="ghost" className="font-medium">
-                Sign In
-              </Button>
-            </Link>
-            <Link to="/login">
-              <Button className="btn-professional">
-                Join Network
-              </Button>
-            </Link>
+            {isAuthenticated ? (
+              <div className="flex items-center space-x-4">
+                <div className="flex items-center space-x-2">
+                  <div className="w-8 h-8 bg-accent rounded-full flex items-center justify-center">
+                    <User className="h-4 w-4 text-accent-foreground" />
+                  </div>
+                  <div className="text-sm">
+                    <div className="font-medium">{user?.name}</div>
+                    <div className="text-muted-foreground text-xs">{user?.role}</div>
+                  </div>
+                </div>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={logout}
+                  className="text-muted-foreground hover:text-foreground"
+                >
+                  <LogOut className="h-4 w-4 mr-2" />
+                  Logout
+                </Button>
+              </div>
+            ) : (
+              <>
+                <Link to="/login">
+                  <Button variant="ghost" className="font-medium">
+                    Sign In
+                  </Button>
+                </Link>
+                <Link to="/login">
+                  <Button className="btn-professional">
+                    Join Network
+                  </Button>
+                </Link>
+              </>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -96,17 +124,41 @@ const Header = () => {
                 </Link>
               ))}
               <div className="px-4 pt-4 space-y-3">
-                <Link to="/login" onClick={() => setIsMenuOpen(false)}>
-                  <Button variant="ghost" className="w-full justify-start">
-                    <User className="h-4 w-4 mr-2" />
-                    Sign In
-                  </Button>
-                </Link>
-                <Link to="/login" onClick={() => setIsMenuOpen(false)}>
-                  <Button className="btn-professional w-full">
-                    Join Network
-                  </Button>
-                </Link>
+                {isAuthenticated ? (
+                  <div className="space-y-3">
+                    <div className="flex items-center space-x-3 px-4 py-2 bg-muted rounded-lg">
+                      <div className="w-8 h-8 bg-accent rounded-full flex items-center justify-center">
+                        <User className="h-4 w-4 text-accent-foreground" />
+                      </div>
+                      <div className="text-sm">
+                        <div className="font-medium">{user?.name}</div>
+                        <div className="text-muted-foreground text-xs">{user?.role}</div>
+                      </div>
+                    </div>
+                    <Button
+                      variant="ghost"
+                      className="w-full justify-start"
+                      onClick={() => { logout(); setIsMenuOpen(false); }}
+                    >
+                      <LogOut className="h-4 w-4 mr-2" />
+                      Logout
+                    </Button>
+                  </div>
+                ) : (
+                  <>
+                    <Link to="/login" onClick={() => setIsMenuOpen(false)}>
+                      <Button variant="ghost" className="w-full justify-start">
+                        <User className="h-4 w-4 mr-2" />
+                        Sign In
+                      </Button>
+                    </Link>
+                    <Link to="/login" onClick={() => setIsMenuOpen(false)}>
+                      <Button className="btn-professional w-full">
+                        Join Network
+                      </Button>
+                    </Link>
+                  </>
+                )}
               </div>
             </div>
           </div>
