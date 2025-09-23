@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -11,7 +11,7 @@ import { toast } from "sonner";
 import { 
   GraduationCap, 
   Users, 
-  Shield, 
+  Shield,
   Eye, 
   EyeOff,
   ArrowLeft,
@@ -23,8 +23,13 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [activeRole, setActiveRole] = useState("student");
   const [isLoading, setIsLoading] = useState(false);
+  const [activeTab, setActiveTab] = useState("login");
   const { login } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+  
+  // Get the page user was trying to access before being redirected to login
+  const from = location.state?.from?.pathname || '/dashboard';
 
   const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -36,8 +41,8 @@ const Login = () => {
     
     try {
       await login(email, password, activeRole);
-      toast.success("Welcome back! Redirecting to dashboard...");
-      setTimeout(() => navigate('/dashboard'), 1000);
+      toast.success("Welcome back! Redirecting...");
+      setTimeout(() => navigate(from, { replace: true }), 1000);
     } catch (error) {
       toast.error("Login failed. Please try again.");
     } finally {
@@ -56,7 +61,7 @@ const Login = () => {
     try {
       await login(email, password, activeRole);
       toast.success("Account created successfully! Welcome to AlumniNet!");
-      setTimeout(() => navigate('/dashboard'), 1000);
+      setTimeout(() => navigate(from, { replace: true }), 1000);
     } catch (error) {
       toast.error("Registration failed. Please try again.");
     } finally {
@@ -64,7 +69,8 @@ const Login = () => {
     }
   };
 
-  const roles = [
+  // Roles available for both sign-in and sign-up
+  const publicRoles = [
     {
       id: "student",
       title: "Student",
@@ -78,7 +84,12 @@ const Login = () => {
       description: "Graduates ready to mentor and network",
       icon: Users,
       color: "from-purple-500 to-pink-500"
-    },
+    }
+  ];
+
+  // All roles including admin (for sign-in only)
+  const allRoles = [
+    ...publicRoles,
     {
       id: "admin",
       title: "Admin",
@@ -107,8 +118,12 @@ const Login = () => {
 
         {/* Logo */}
         <div className="text-center mb-8">
-          <div className="w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center mx-auto mb-4 hover-glow">
-            <GraduationCap className="h-8 w-8 text-primary-foreground" />
+          <div className="w-16 h-16 rounded-2xl overflow-hidden mx-auto mb-4 hover-glow">
+            <img 
+              src="/alumni-logo.jpg" 
+              alt="AlumniNet Logo" 
+              className="w-full h-full object-cover rounded-2xl"
+            />
           </div>
           <h1 className="text-2xl font-bold text-gradient-primary">
             Welcome to AlumniNet
@@ -121,8 +136,8 @@ const Login = () => {
         {/* Role Selection */}
         <div className="mb-6">
           <Label className="text-base font-medium mb-4 block">I am a:</Label>
-          <div className="grid grid-cols-3 gap-3">
-            {roles.map((role) => (
+          <div className={`grid gap-3 ${activeTab === 'login' ? 'grid-cols-3' : 'grid-cols-2'}`}>
+            {(activeTab === 'login' ? allRoles : publicRoles).map((role) => (
               <button
                 key={role.id}
                 onClick={() => setActiveRole(role.id)}
@@ -152,7 +167,18 @@ const Login = () => {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <Tabs defaultValue="login" className="space-y-6">
+            <Tabs 
+              defaultValue="login" 
+              className="space-y-6"
+              onValueChange={(value) => {
+                setActiveTab(value);
+                // Reset to default role when switching tabs
+                // If switching to register and current role is admin, reset to student
+                if (value === 'register' && activeRole === 'admin') {
+                  setActiveRole('student');
+                }
+              }}
+            >
               <TabsList className="grid w-full grid-cols-2">
                 <TabsTrigger value="login">Sign In</TabsTrigger>
                 <TabsTrigger value="register">Sign Up</TabsTrigger>

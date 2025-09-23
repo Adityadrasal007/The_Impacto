@@ -19,11 +19,11 @@ const Header = () => {
   const { isAuthenticated, user, logout } = useAuth();
 
   const navigation = [
-    { name: "Alumni Directory", href: "/alumni", icon: Users },
+    { name: "Alumni", href: "/alumni", icon: Users },
     { name: "Jobs", href: "/jobs", icon: Briefcase },
     { name: "AI Career Hub", href: "/career-hub", icon: Briefcase },
     { name: "Mentorship", href: "/mentorship", icon: Users },
-    { name: "Events Hub", href: "/events-hub", icon: Calendar },
+    { name: "Events", href: "/events-hub", icon: Calendar },
     { name: "Messages", href: "/messages", icon: Bell },
     { name: "Dashboard", href: "/dashboard", icon: User },
   ];
@@ -34,8 +34,12 @@ const Header = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 hover-lift">
-            <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-              <GraduationCap className="h-5 w-5 text-primary-foreground" />
+            <div className="w-8 h-8 rounded-lg overflow-hidden flex items-center justify-center">
+              <img 
+                src="/alumni-logo.jpg" 
+                alt="AlumniNet Logo" 
+                className="w-full h-full object-cover rounded-lg"
+              />
             </div>
             <span className="text-xl font-bold text-gradient-primary">
               AlumniNet
@@ -43,62 +47,55 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-6">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 to={item.href}
-                className="flex items-center space-x-2 text-muted-foreground hover:text-foreground transition-colors duration-200 group"
+                className="flex items-center space-x-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200 group"
               >
-                <item.icon className="h-4 w-4 group-hover:scale-110 transition-transform" />
-                <span className="font-medium">{item.name}</span>
+                <item.icon className="h-4 w-4 group-hover:scale-105 transition-transform" />
+                <span>{item.name}</span>
               </Link>
             ))}
           </div>
 
-          {/* Auth Buttons */}
-          <div className="hidden md:flex items-center space-x-4">
+          {/* User Actions */}
+          <div className="hidden lg:flex items-center space-x-3">
             {isAuthenticated ? (
-              <div className="flex items-center space-x-4">
+              <div className="flex items-center space-x-3">
                 <div className="flex items-center space-x-2">
-                  <div className="w-8 h-8 bg-accent rounded-full flex items-center justify-center">
-                    <User className="h-4 w-4 text-accent-foreground" />
+                  <div className="w-7 h-7 bg-accent rounded-full flex items-center justify-center">
+                    <User className="h-3.5 w-3.5 text-accent-foreground" />
                   </div>
-                  <div className="text-sm">
-                    <div className="font-medium">{user?.name}</div>
-                    <div className="text-muted-foreground text-xs">{user?.role}</div>
+                  <div className="text-xs">
+                    <div className="font-medium text-foreground">{user?.name}</div>
+                    <div className="text-muted-foreground">{user?.role}</div>
                   </div>
                 </div>
                 <Button
                   variant="ghost"
                   size="sm"
                   onClick={logout}
-                  className="text-muted-foreground hover:text-foreground"
+                  className="text-muted-foreground hover:text-foreground text-xs"
                 >
-                  <LogOut className="h-4 w-4 mr-2" />
+                  <LogOut className="h-3.5 w-3.5 mr-1.5" />
                   Logout
                 </Button>
               </div>
             ) : (
-              <>
-                <Link to="/login">
-                  <Button variant="ghost" className="font-medium">
-                    Sign In
-                  </Button>
-                </Link>
-                <Link to="/login">
-                  <Button className="btn-professional">
-                    Join Network
-                  </Button>
-                </Link>
-              </>
+              <Link to="/login">
+                <Button className="btn-professional text-sm">
+                  Join Network
+                </Button>
+              </Link>
             )}
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-muted transition-colors"
+            className="lg:hidden p-2 rounded-lg hover:bg-muted transition-colors"
           >
             {isMenuOpen ? (
               <X className="h-6 w-6" />
@@ -110,25 +107,25 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 animate-fade-in">
-            <div className="space-y-4">
+          <div className="lg:hidden py-4 animate-fade-in">
+            <div className="space-y-2">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
                   to={item.href}
-                  className="flex items-center space-x-3 px-4 py-2 rounded-lg hover:bg-muted transition-colors"
+                  className="flex items-center space-x-3 px-4 py-2.5 rounded-lg hover:bg-muted transition-colors text-sm"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  <item.icon className="h-5 w-5 text-muted-foreground" />
+                  <item.icon className="h-4 w-4 text-muted-foreground" />
                   <span className="font-medium">{item.name}</span>
                 </Link>
               ))}
               <div className="px-4 pt-4 space-y-3">
                 {isAuthenticated ? (
                   <div className="space-y-3">
-                    <div className="flex items-center space-x-3 px-4 py-2 bg-muted rounded-lg">
-                      <div className="w-8 h-8 bg-accent rounded-full flex items-center justify-center">
-                        <User className="h-4 w-4 text-accent-foreground" />
+                    <div className="flex items-center space-x-3 px-4 py-2.5 bg-muted rounded-lg">
+                      <div className="w-7 h-7 bg-accent rounded-full flex items-center justify-center">
+                        <User className="h-3.5 w-3.5 text-accent-foreground" />
                       </div>
                       <div className="text-sm">
                         <div className="font-medium">{user?.name}</div>
@@ -137,7 +134,7 @@ const Header = () => {
                     </div>
                     <Button
                       variant="ghost"
-                      className="w-full justify-start"
+                      className="w-full justify-start text-sm"
                       onClick={() => { logout(); setIsMenuOpen(false); }}
                     >
                       <LogOut className="h-4 w-4 mr-2" />
@@ -145,19 +142,11 @@ const Header = () => {
                     </Button>
                   </div>
                 ) : (
-                  <>
-                    <Link to="/login" onClick={() => setIsMenuOpen(false)}>
-                      <Button variant="ghost" className="w-full justify-start">
-                        <User className="h-4 w-4 mr-2" />
-                        Sign In
-                      </Button>
-                    </Link>
-                    <Link to="/login" onClick={() => setIsMenuOpen(false)}>
-                      <Button className="btn-professional w-full">
-                        Join Network
-                      </Button>
-                    </Link>
-                  </>
+                  <Link to="/login" onClick={() => setIsMenuOpen(false)}>
+                    <Button className="btn-professional w-full text-sm">
+                      Join Network
+                    </Button>
+                  </Link>
                 )}
               </div>
             </div>

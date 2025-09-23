@@ -22,26 +22,31 @@ import {
   Coffee,
   Video
 } from "lucide-react";
+import { useAuth } from "@/contexts/AuthContext";
 import Header from "@/components/Header";
 import AnalyticsInsights from "@/components/AnalyticsInsights";
 import AdminDashboard from "@/components/AdminDashboard";
+import { Link } from "react-router-dom";
 
 const Dashboard = () => {
+  const { user } = useAuth();
   const [userRole] = useState("alumni"); // Could be "student", "alumni", "admin"
   const [activeTab, setActiveTab] = useState("overview");
 
-  // Mock user data
+  // Use real user data with fallbacks
   const currentUser = {
-    name: "Sarah Chen",
-    role: "Senior Software Engineer",
-    company: "Google",
-    graduationYear: 2018,
+    name: user?.name || "User",
+    role: user?.role || "Alumni",
+    company: user?.company || "Not specified",
+    graduationYear: user?.graduationYear || new Date().getFullYear(),
     connections: 847,
     profileViews: 234,
     messagesReceived: 18,
     menteeCount: 12,
     jobReferrals: 8,
-    rating: 4.9
+    rating: 4.9,
+    skills: user?.skills || [],
+    bio: user?.bio || ""
   };
 
   const recentActivities = [
@@ -137,10 +142,12 @@ const Dashboard = () => {
                   <Bell className="h-4 w-4 mr-2" />
                   Notifications
                 </Button>
-                <Button className="bg-gradient-accent text-white hover:opacity-90">
-                  <Settings className="h-4 w-4 mr-2" />
-                  Profile Settings
-                </Button>
+                <Link to="/profile-settings">
+                  <Button className="bg-gradient-accent text-white hover:opacity-90">
+                    <Settings className="h-4 w-4 mr-2" />
+                    Profile Settings
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
