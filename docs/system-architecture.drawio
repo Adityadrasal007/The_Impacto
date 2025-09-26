@@ -1,0 +1,76 @@
+<mxfile host="65bd71144e">
+    <diagram id="system-architecture" name="System Architecture">
+        <mxGraphModel dx="1003" dy="866" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="frontend-container" value="Frontend (React + TypeScript)" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="40" width="240" height="400" as="geometry"/>
+                </mxCell>
+                <mxCell id="ui-components" value="UI Components" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#d5e8d4;strokeColor=#82b366;" parent="frontend-container" vertex="1">
+                    <mxGeometry y="40" width="240" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="ui-list" value="- Admin Dashboard&#xa;- Alumni Directory&#xa;- Job Board&#xa;- Events Management&#xa;- Mentorship Program&#xa;- Real-time Chat" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="ui-components" vertex="1">
+                    <mxGeometry y="26" width="240" height="104" as="geometry"/>
+                </mxCell>
+                <mxCell id="state" value="State Management" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#fff2cc;strokeColor=#d6b656;" parent="frontend-container" vertex="1">
+                    <mxGeometry y="180" width="240" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="state-list" value="- Context API&#xa;- Custom Hooks&#xa;- Real-time State Updates&#xa;- Authentication State" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="state" vertex="1">
+                    <mxGeometry y="26" width="240" height="74" as="geometry"/>
+                </mxCell>
+                <mxCell id="services" value="Services Integration" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="frontend-container" vertex="1">
+                    <mxGeometry y="290" width="240" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="services-list" value="- Supabase Client&#xa;- API Integration&#xa;- Real-time Subscriptions&#xa;- File Storage Integration" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="services" vertex="1">
+                    <mxGeometry y="26" width="240" height="74" as="geometry"/>
+                </mxCell>
+                <mxCell id="backend-container" value="Supabase Backend" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+                    <mxGeometry x="400" y="40" width="240" height="400" as="geometry"/>
+                </mxCell>
+                <mxCell id="database" value="PostgreSQL Database" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" parent="backend-container" vertex="1">
+                    <mxGeometry y="40" width="240" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="auth" value="Authentication &amp; Authorization" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="backend-container" vertex="1">
+                    <mxGeometry y="150" width="240" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="auth-list" value="- JWT Authentication&#xa;- Row Level Security (RLS)&#xa;- Role-based Access Control&#xa;- OAuth Providers" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="auth" vertex="1">
+                    <mxGeometry y="26" width="240" height="74" as="geometry"/>
+                </mxCell>
+                <mxCell id="storage" value="Storage &amp; Real-time" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#d5e8d4;strokeColor=#82b366;" parent="backend-container" vertex="1">
+                    <mxGeometry y="260" width="240" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="storage-list" value="- File Storage&#xa;- Real-time Subscriptions&#xa;- WebSocket Connections&#xa;- CDN Integration&#xa;- Edge Functions" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="storage" vertex="1">
+                    <mxGeometry y="26" width="240" height="104" as="geometry"/>
+                </mxCell>
+                <mxCell id="ai-container" value="AI Services" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+                    <mxGeometry x="760" y="40" width="240" height="400" as="geometry"/>
+                </mxCell>
+                <mxCell id="ai-career" value="Career Matching" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="ai-container" vertex="1">
+                    <mxGeometry y="40" width="240" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="ai-career-list" value="- Skill Analysis&#xa;- Job Matching Algorithm&#xa;- Career Path Prediction&#xa;- Recommendation Engine" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="ai-career" vertex="1">
+                    <mxGeometry y="26" width="240" height="74" as="geometry"/>
+                </mxCell>
+                <mxCell id="ai-analytics" value="Analytics &amp; Insights" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#fff2cc;strokeColor=#d6b656;" parent="ai-container" vertex="1">
+                    <mxGeometry y="150" width="240" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="ai-analytics-list" value="- User Behavior Analysis&#xa;- Engagement Metrics&#xa;- Success Tracking&#xa;- Predictive Analytics" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="ai-analytics" vertex="1">
+                    <mxGeometry y="26" width="240" height="74" as="geometry"/>
+                </mxCell>
+                <mxCell id="expansion" value="Future Expansion" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#f8cecc;strokeColor=#b85450;" parent="ai-container" vertex="1">
+                    <mxGeometry y="260" width="240" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="expansion-list" value="- Advanced ML Models&#xa;- Natural Language Processing&#xa;- Automated Mentorship Matching&#xa;- Skill Assessment Tools&#xa;- Learning Path Generation" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="expansion" vertex="1">
+                    <mxGeometry y="26" width="240" height="104" as="geometry"/>
+                </mxCell>
+                <mxCell id="frontend-to-backend" value="" style="endArrow=classic;startArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="frontend-container" target="backend-container" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="backend-to-ai" value="" style="endArrow=classic;startArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="backend-container" target="ai-container" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

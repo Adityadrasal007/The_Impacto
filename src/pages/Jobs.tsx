@@ -71,15 +71,15 @@ const Jobs = () => {
     },
     {
       id: 4,
-      title: "Investment Banking Analyst",
+      title: "Backend Devloper",
       company: "Goldman Sachs",
       location: "New York, NY",
       type: "Full-time",
       salary: "$85k - $120k",
       postedBy: "David Kim",
       postedDate: "5 days ago",
-      description: "Join our investment banking division as an analyst...",
-      requirements: ["Financial Modeling", "Excel", "CFA preferred"],
+      description: "Maintain and build API's",
+      requirements: ["Django", "Python", "1 year experience"],
       remote: false,
       featured: true,
       applicants: 89

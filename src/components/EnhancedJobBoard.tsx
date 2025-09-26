@@ -133,7 +133,7 @@ const EnhancedJobBoard = () => {
     },
     {
       id: 4,
-      title: "Investment Banking Analyst",
+      title: "Backend Developer",
       company: "Goldman Sachs",
       location: "New York, NY",
       type: "Full-time", 
