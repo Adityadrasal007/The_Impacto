@@ -46,7 +46,7 @@ const AdminDashboard = () => {
     {
       id: 1,
       type: "new_alumni",
-      message: "Sarah Chen joined the network",
+      message: "Priya Sharma joined the network",
       timestamp: "2 minutes ago",
       icon: UserCheck,
       color: "text-success"
@@ -62,7 +62,7 @@ const AdminDashboard = () => {
     {
       id: 3,
       type: "mentoring",
-      message: "Mentoring session completed: Michael & Alex",
+      message: "Mentoring session completed: Aditya & Vishwam",
       timestamp: "12 minutes ago",
       icon: Award,
       color: "text-premium"
@@ -70,7 +70,7 @@ const AdminDashboard = () => {
     {
       id: 4,
       type: "connection",
-      message: "New connection: Emily Johnson & David Kim",
+      message: "New connection: Krishna Chandak  & Ayush Tiwari",
       timestamp: "18 minutes ago",
       icon: MessageCircle,
       color: "text-primary"
@@ -93,7 +93,7 @@ const AdminDashboard = () => {
       type: "event"
     },
     {
-      title: "Sarah Chen - Product Strategy",
+      title: "Rohit Sharma - Product Strategy",
       department: "Technology",
       connections: 234,
       mentees: 12,

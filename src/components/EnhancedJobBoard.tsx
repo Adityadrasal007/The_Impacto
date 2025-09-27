@@ -50,21 +50,21 @@ const EnhancedJobBoard = () => {
     {
       id: 1,
       title: "Senior Frontend Developer",
-      company: "TechCorp Inc.",
-      location: "San Francisco, CA",
+      company: "Infosys",
+      location: "Bangalore, Karnataka",
       type: "Full-time",
       experienceLevel: "Senior",
-      salary: "$120k - $180k",
-      salaryMin: 120000,
-      salaryMax: 180000,
-      postedBy: "Sarah Chen",
+      salary: "₹25L - ₹45L",
+      salaryMin: 2500000,
+      salaryMax: 4500000,
+      postedBy: "Priya Sharma",
       postedDate: "2024-01-10",
       appliedCount: 23,
       viewCount: 156,
       description: "We're looking for a senior frontend developer to join our growing team and lead the development of our next-generation SaaS platform...",
       requirements: ["React", "TypeScript", "5+ years experience", "Team Leadership"],
       responsibilities: ["Lead frontend architecture decisions", "Mentor junior developers", "Collaborate with design team", "Optimize performance"],
-      benefits: ["Health Insurance", "401k Matching", "Remote Work", "Learning Budget"],
+      benefits: ["Health Insurance", "Provident Fund (PF)", "Remote Work", "Learning Budget"],
       remote: true,
       featured: true,
       urgent: false,
@@ -78,14 +78,14 @@ const EnhancedJobBoard = () => {
     {
       id: 2,
       title: "Product Manager",
-      company: "InnovateLabs",
-      location: "Austin, TX", 
+      company: "TCS",
+      location: "Mumbai, Maharashtra", 
       type: "Full-time",
       experienceLevel: "Mid-Level",
-      salary: "$100k - $140k",
-      salaryMin: 100000,
-      salaryMax: 140000,
-      postedBy: "Michael Rodriguez",
+      salary: "₹20L - ₹35L",
+      salaryMin: 2000000,
+      salaryMax: 3500000,
+      postedBy: "Arjun Patel",
       postedDate: "2024-01-08",
       appliedCount: 47,
       viewCount: 289,
@@ -106,14 +106,14 @@ const EnhancedJobBoard = () => {
     {
       id: 3,
       title: "Data Scientist Intern",
-      company: "DataFlow Solutions",
+      company: "Swiggy",
       location: "Remote",
       type: "Internship",
       experienceLevel: "Entry Level",
-      salary: "$25 - $35/hr",
-      salaryMin: 52000,
-      salaryMax: 72800,
-      postedBy: "Dr. Emily Johnson",
+      salary: "₹40k - ₹60k/month",
+      salaryMin: 480000,
+      salaryMax: 720000,
+      postedBy: "Dr. Meera Gupta",
       postedDate: "2024-01-05",
       appliedCount: 156,
       viewCount: 445,
@@ -134,14 +134,14 @@ const EnhancedJobBoard = () => {
     {
       id: 4,
       title: "Backend Developer",
-      company: "Goldman Sachs",
-      location: "New York, NY",
+      company: "Wipro",
+      location: "Hyderabad, Telangana",
       type: "Full-time", 
       experienceLevel: "Entry Level",
-      salary: "$85k - $120k",
-      salaryMin: 85000,
-      salaryMax: 120000,
-      postedBy: "David Kim",
+      salary: "₹15L - ₹25L",
+      salaryMin: 1500000,
+      salaryMax: 2500000,
+      postedBy: "Rajesh Kumar",
       postedDate: "2024-01-03",
       appliedCount: 89,
       viewCount: 567,
@@ -163,7 +163,7 @@ const EnhancedJobBoard = () => {
 
   const industries = [...new Set(jobListings.map(j => j.industry))];
   const experienceLevels = [...new Set(jobListings.map(j => j.experienceLevel))];
-  const salaryRanges = ["$0 - $50k", "$50k - $100k", "$100k - $150k", "$150k+"];
+  const salaryRanges = ["₹0 - ₹10L", "₹10L - ₹20L", "₹20L - ₹30L", "₹30L+"];
 
   const jobTypes = [
     { id: "all", label: "All Jobs", count: jobListings.length, icon: Briefcase },
@@ -194,10 +194,10 @@ const EnhancedJobBoard = () => {
       const matchesExperience = selectedExperience.length === 0 || selectedExperience.includes(job.experienceLevel);
       
       const matchesSalary = selectedSalaryRange.length === 0 || selectedSalaryRange.some(range => {
-        if (range === "$0 - $50k") return job.salaryMax <= 50000;
-        if (range === "$50k - $100k") return job.salaryMin >= 50000 && job.salaryMax <= 100000;
-        if (range === "$100k - $150k") return job.salaryMin >= 100000 && job.salaryMax <= 150000;
-        if (range === "$150k+") return job.salaryMin >= 150000;
+        if (range === "₹0 - ₹10L") return job.salaryMax <= 1000000;
+        if (range === "₹10L - ₹20L") return job.salaryMin >= 1000000 && job.salaryMax <= 2000000;
+        if (range === "₹20L - ₹30L") return job.salaryMin >= 2000000 && job.salaryMax <= 3000000;
+        if (range === "₹30L+") return job.salaryMin >= 3000000;
         return true;
       });
       

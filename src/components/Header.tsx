@@ -30,10 +30,10 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border/50">
-      <nav className="max-w-7xl mx-auto px-6 lg:px-8">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2 hover-lift">
+          <Link to="/" className="flex items-center space-x-2 hover-lift shrink-0">
             <div className="w-8 h-8 rounded-lg overflow-hidden flex items-center justify-center">
               <img 
                 src="/alumni-logo.jpg" 
@@ -41,7 +41,7 @@ const Header = () => {
                 className="w-full h-full object-cover rounded-lg"
               />
             </div>
-            <span className="text-xl font-bold text-gradient-primary">
+            <span className="text-lg sm:text-xl font-bold text-gradient-primary">
               AlumniNet
             </span>
           </Link>
@@ -95,7 +95,8 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden p-2 rounded-lg hover:bg-muted transition-colors"
+            className="lg:hidden p-2 rounded-lg hover:bg-muted transition-colors duration-200 active:scale-95"
+            aria-label="Toggle menu"
           >
             {isMenuOpen ? (
               <X className="h-6 w-6" />
@@ -107,20 +108,20 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden py-4 animate-fade-in">
-            <div className="space-y-2">
+          <div className="lg:hidden py-4 animate-in slide-in-from-top-5 duration-200">
+            <div className="space-y-1.5">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
                   to={item.href}
-                  className="flex items-center space-x-3 px-4 py-2.5 rounded-lg hover:bg-muted transition-colors text-sm"
+                  className="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-muted active:bg-muted/70 transition-colors text-sm touch-none"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <item.icon className="h-4 w-4 text-muted-foreground" />
                   <span className="font-medium">{item.name}</span>
                 </Link>
               ))}
-              <div className="px-4 pt-4 space-y-3">
+              <div className="mt-4 px-4 pt-4 border-t border-border/50 space-y-3">
                 {isAuthenticated ? (
                   <div className="space-y-3">
                     <div className="flex items-center space-x-3 px-4 py-2.5 bg-muted rounded-lg">

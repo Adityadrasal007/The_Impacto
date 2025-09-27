@@ -21,6 +21,7 @@ import {
 
 const AICareerMatcher = () => {
   const [isAnalyzing, setIsAnalyzing] = useState(false);
+  const [activeTab, setActiveTab] = useState("skills");
 
   const skillsData = [
     { skill: "JavaScript", level: 92, trend: "+15%" },
@@ -34,30 +35,30 @@ const AICareerMatcher = () => {
   const careerMatches = [
     {
       title: "Senior Full Stack Developer",
-      company: "Google",
+      company: "Infosys",
       match: 95,
-      salary: "$150k - $200k",
-      location: "San Francisco, CA",
+      salary: "₹25L - ₹35L",
+      location: "Bangalore, Karnataka",
       skills: ["React", "TypeScript", "Node.js"],
       type: "Full-time",
       remote: true
     },
     {
       title: "AI/ML Engineer",
-      company: "OpenAI",
+      company: "TCS",
       match: 88,
-      salary: "$180k - $250k", 
-      location: "San Francisco, CA",
+      salary: "₹28L - ₹40L", 
+      location: "Pune, Maharashtra",
       skills: ["Python", "Machine Learning", "TensorFlow"],
       type: "Full-time",
       remote: false
     },
     {
       title: "Tech Lead - Frontend",
-      company: "Meta",
+      company: "Wipro",
       match: 92,
-      salary: "$160k - $220k",
-      location: "Menlo Park, CA",
+      salary: "₹30L - ₹45L",
+      location: "Hyderabad, Telangana",
       skills: ["React", "JavaScript", "Leadership"],
       type: "Full-time",
       remote: true
@@ -67,7 +68,7 @@ const AICareerMatcher = () => {
   const learningRecommendations = [
     {
       title: "Advanced Machine Learning",
-      provider: "Stanford Online",
+      provider: "IIT Madras Online",
       duration: "12 weeks",
       difficulty: "Advanced",
       impact: "High",
@@ -75,7 +76,7 @@ const AICareerMatcher = () => {
     },
     {
       title: "System Design Interview Prep",
-      provider: "AlgoExpert",
+      provider: "GeeksforGeeks",
       duration: "8 weeks", 
       difficulty: "Intermediate",
       impact: "High",
@@ -83,7 +84,7 @@ const AICareerMatcher = () => {
     },
     {
       title: "Cloud Architecture (AWS)",
-      provider: "AWS Training",
+      provider: "NPTEL",
       duration: "6 weeks",
       difficulty: "Intermediate", 
       impact: "Medium",
@@ -93,6 +94,7 @@ const AICareerMatcher = () => {
 
   const handleAnalyzeProfile = () => {
     setIsAnalyzing(true);
+    setActiveTab("skills");
     // Simulate AI analysis
     setTimeout(() => {
       setIsAnalyzing(false);
@@ -104,20 +106,20 @@ const AICareerMatcher = () => {
       {/* AI Analysis Header */}
       <Card className="card-professional">
         <CardHeader>
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center">
-                <Brain className="h-6 w-6 text-primary-foreground" />
+              <div className="w-10 sm:w-12 h-10 sm:h-12 bg-gradient-primary rounded-full flex items-center justify-center shrink-0">
+                <Brain className="h-5 sm:h-6 w-5 sm:w-6 text-primary-foreground" />
               </div>
               <div>
-                <CardTitle className="text-xl">AI Career Intelligence</CardTitle>
-                <p className="text-muted-foreground">Powered by advanced matching algorithms</p>
+                <CardTitle className="text-lg sm:text-xl">AI Career Intelligence</CardTitle>
+                <p className="text-sm text-muted-foreground">Powered by advanced matching algorithms</p>
               </div>
             </div>
             <Button 
               onClick={handleAnalyzeProfile}
               disabled={isAnalyzing}
-              className="bg-gradient-primary hover:opacity-90"
+              className="w-full sm:w-auto bg-gradient-primary hover:opacity-90 transition-opacity"
             >
               {isAnalyzing ? (
                 <>
