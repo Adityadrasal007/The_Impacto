@@ -50,7 +50,7 @@ const AnalyticsInsights = () => {
 
   const topPerformers = [
     {
-      name: "Sarah Chen",
+      name: "Priya Sharma",
       role: "Senior Software Engineer",
       connections: 847,
       mentees: 23,
@@ -59,7 +59,7 @@ const AnalyticsInsights = () => {
       specialty: "Technical Leadership"
     },
     {
-      name: "Michael Rodriguez",
+      name: "Arjun Patel",
       role: "Product Manager",
       connections: 1203,
       mentees: 18,
@@ -68,7 +68,7 @@ const AnalyticsInsights = () => {
       specialty: "Product Strategy"
     },
     {
-      name: "Dr. Emily Johnson",
+      name: "Dr. Meera Gupta",
       role: "Chief Medical Officer",
       connections: 654,
       mentees: 15,
